@@ -3,7 +3,6 @@ import { GetStaticProps } from "next";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 
-
 interface Post {
   title: string;
   slug: string[];
