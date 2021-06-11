@@ -13,7 +13,7 @@ interface Post {
 async function getPosts() {
   //fetching from Ghost
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BLOG_URL}/ghost/api/v3/content/posts/?key=${process.env.NEXT_PUBLIC_CONTEXT_API_KEY}&fields=title,url,custom_excerpt,slug`
+    `https://hungrybrains.herokuapp.com/ghost/api/v3/content/posts/?key=${process.env.NEXT_PUBLIC_CONTEXT_API_KEY}&fields=title,url,custom_excerpt,slug`
   ).then((res) => res.json());
 
   //console.log(res);

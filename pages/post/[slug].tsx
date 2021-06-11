@@ -20,7 +20,7 @@ interface Post {
 
 export const getStaticPaths: GetStaticPaths<Props> = async () => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BLOG_URL}/ghost/api/v3/content/posts/?key=${process.env.NEXT_PUBLIC_CONTEXT_API_KEY}&fields=title,url,custom_excerpt,slug`
+    `https://hungrybrains.herokuapp.com/ghost/api/v3/content/posts/?key=${process.env.NEXT_PUBLIC_CONTEXT_API_KEY}&fields=title,url,custom_excerpt,slug`
   );
   const data: Post = await res.json();
   const paths = data.posts.map((posts: Props) => {
@@ -54,7 +54,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const slug = params?.slug; //checking for undefined
   //fetching for slug to id page
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BLOG_URL}/ghost/api/v3/content/posts/slug/${slug}/?key=${process.env.NEXT_PUBLIC_CONTEXT_API_KEY}&fields=title,url,custom_excerpt&formats=html`
+    `https://hungrybrains.herokuapp.com/ghost/api/v3/content/posts/slug/${slug}/?key=${process.env.NEXT_PUBLIC_CONTEXT_API_KEY}&fields=title,url,custom_excerpt&formats=html`
   );
 
   const data: Props = await res.json();
